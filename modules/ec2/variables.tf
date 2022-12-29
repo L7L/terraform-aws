@@ -10,7 +10,7 @@ variable "ami" {
   default =  "ami-08c40ec9ead489470"
 }
 variable "key_name" {
-   default = "C:/Users/rsjat/Downloads/elt.pem"
+   default = "terra" 
 }
 
 variable "security_groups" {
