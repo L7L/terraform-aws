@@ -15,7 +15,8 @@ module "security-group" {
    source = "../modules/security-group"
    vpc_id = module.vpc-module.vpc_id
 }
-module "ec2module" {
+
+/*module "ec2module" {
   source = "../modules/ec2"
   vpc_security_group_ids = ["${module.security-group.security_group_public}"]
   subnet_id = module.my-subnet.public-subnet
@@ -30,13 +31,13 @@ output "jenkins_master_public_ip" {
 output "jenkins_slave_public_ip" {
    description = "The Public IP assigned to the Jenkins slave instance"
    value = "${module.ec2module.slave_public_ip}"
-}
+} */
 
 module "k8scluster" {
   source = "../modules/ec2"
   vpc_security_group_ids = ["${module.security-group.security_group_public}"]
   subnet_id = module.my-subnet.public-subnet
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
   ami = "ami-0149b2da6ceec4bb0"
 }
 

@@ -9,5 +9,4 @@ resource "aws_instance" "myec2" {
   tags = {
     Name = "${each.key}"
   }
-
 }
